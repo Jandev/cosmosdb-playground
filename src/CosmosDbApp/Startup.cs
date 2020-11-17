@@ -24,6 +24,7 @@ namespace CosmosDbApp
 
 
             builder.Services.AddSingleton(configuration);
+            builder.Services.AddTransient<CosmosService>();
         }
     }
 }
