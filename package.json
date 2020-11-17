@@ -1,0 +1,19 @@
+{
+    "name": "cosmosdb-playground",
+    "version": "1.0.0",
+    "private": false,
+    "scripts": {
+        "start": "node ./src/CosmosDbApp/js/spCreateReservations.js",
+        "debug": "nodemon --inspect ./src/CosmosDbApp/js/spCreateReservations.js"
+    },
+    "dependencies": {
+        "debug": "~2.6.3",
+        "express": "^4.16.4",
+        "express-session": "^1.15.3",
+        "hbs": "^4.0.3",
+        "morgan": "~1.9.1"
+    },
+    "devDependencies": {
+        "nodemon": "^1.11.0"
+    }
+}
