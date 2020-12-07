@@ -3,6 +3,7 @@ using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using HibernatingRhinos.Profiler.Appender.CosmosDB;
 
 [assembly: FunctionsStartup(typeof(Startup))]
 namespace CosmosDbApp
@@ -24,6 +25,8 @@ namespace CosmosDbApp
 
 
             builder.Services.AddSingleton(configuration);
+            var cosmosClient = CosmosService.SetClient(configuration);
+            builder.Services.UseCosmosDBProfiler(cosmosClient);
             builder.Services.AddTransient<CosmosService>();
         }
     }

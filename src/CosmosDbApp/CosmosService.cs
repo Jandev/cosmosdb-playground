@@ -8,8 +8,6 @@ namespace CosmosDbApp
     {
         private readonly IConfiguration configuration;
         private readonly ILogger<CosmosService> logger;
-        private readonly string endpoint;
-        private readonly string authKey;
         private readonly string databaseName;
         private readonly string containerName;
 
@@ -22,15 +20,27 @@ namespace CosmosDbApp
             this.configuration = configuration;
             this.logger = logger;
 
-            endpoint = this.configuration["CosmosDb:Endpoint"];
-            authKey = this.configuration["CosmosDb:Key"];
             databaseName = this.configuration["CosmosDb:Database"];
             containerName = this.configuration["CosmosDb:Container"];
         }
 
-        private CosmosClient CreateClient()
+
+        private static CosmosClient _cosmosClient;
+        private static CosmosClient GetClient()
         {
-            return new CosmosClient(endpoint, authKey);
+            return _cosmosClient;
+        }
+
+        internal static CosmosClient SetClient(IConfiguration configuration)
+        {
+            var endpoint = configuration["CosmosDb:Endpoint"];
+            var authKey = configuration["CosmosDb:Key"];
+            if (_cosmosClient == null)
+            {
+                _cosmosClient = new CosmosClient(endpoint, authKey);
+            }
+
+            return _cosmosClient;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace CosmosDbApp
     {
         public async Task InvokeStoredProcedure()
         {
-            using (CosmosClient client = CreateClient())
+            using (CosmosClient client = GetClient())
             {
                 var container = client.GetContainer(databaseName, containerName);
                 await CreateNewItems(container);

@@ -13,7 +13,7 @@ namespace CosmosDbApp
     {
         public async Task RegisterStoredProcedure()
         {
-            using (CosmosClient client = CreateClient())
+            using (CosmosClient client = GetClient())
             {
                 var container = client.GetContainer(databaseName, containerName);
                 await RegisterStoredProcedure(container);

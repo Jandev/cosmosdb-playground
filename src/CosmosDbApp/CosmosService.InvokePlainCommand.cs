@@ -12,7 +12,7 @@ namespace CosmosDbApp
     {
         public async Task InvokePlainCommand()
         {
-            using (CosmosClient client = CreateClient())
+            using (CosmosClient client = GetClient())
             {
                 var container = client.GetContainer(databaseName, containerName);
                 await AddNewItems(container);
