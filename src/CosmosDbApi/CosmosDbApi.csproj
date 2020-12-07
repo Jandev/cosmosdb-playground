@@ -6,10 +6,8 @@
 
   <ItemGroup>
     <PackageReference Include="CosmosDBProfiler" Version="1.0.6007" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\CosmosDbApp\CosmosDbApp.csproj" />
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.15.0" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
   </ItemGroup>
 
 
