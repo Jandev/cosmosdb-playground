@@ -31,7 +31,7 @@ namespace CosmosDbApp
             return _cosmosClient;
         }
 
-        internal static CosmosClient SetClient(IConfiguration configuration)
+        public static CosmosClient SetClient(IConfiguration configuration)
         {
             var endpoint = configuration["CosmosDb:Endpoint"];
             var authKey = configuration["CosmosDb:Key"];
