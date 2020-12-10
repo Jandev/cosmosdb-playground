@@ -1,26 +1,29 @@
 <Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<TargetFramework>netcoreapp3.1</TargetFramework>
-		<AzureFunctionsVersion>v3</AzureFunctionsVersion>
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AzureFunctionsVersion>v3</AzureFunctionsVersion>
+    <UserSecretsId>144b6852-f05b-4c44-b03b-b45aa9e96c32</UserSecretsId>
 		<!--Necessary for the 3.0.9 Functions runtime: https://github.com/Azure/azure-functions-vs-build-sdk/issues/397#issuecomment-596315129-->
 		<_FunctionsSkipCleanOutput>true</_FunctionsSkipCleanOutput>
-	</PropertyGroup>
-	<ItemGroup>
-		<PackageReference Include="CosmosDBProfiler" Version="1.0.6007" />
-		<PackageReference Include="Microsoft.Azure.Cosmos" Version="3.14.0" />
-		<PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.1.0" />
-		<PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.7" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Update="host.json">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
-		<None Update="js\spCreateReservations.js">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
-		<None Update="local.settings.json">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<CopyToPublishDirectory>Never</CopyToPublishDirectory>
-		</None>
-	</ItemGroup>
+  </PropertyGroup>
+  <ItemGroup>
+  		<PackageReference Include="CosmosDBProfiler" Version="1.0.6015" />
+    <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.15.0" />
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.14.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.10" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.7" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="js\spCreateReservations.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
 </Project>
